@@ -14,12 +14,14 @@ Uma aplicação web simples desenvolvida em **HTML, CSS e JavaScript (ES5)** par
 
 - **Classificação detalhada do IMC**:
 
-  - Abaixo do peso: IMC < 18,5
-  - Peso normal: 18,5 ≤ IMC ≤ 24,9
-  - Sobrepeso: 25 ≤ IMC ≤ 29,9
-  - Obesidade grau I: 30 ≤ IMC ≤ 34,9
-  - Obesidade grau II: 35 ≤ IMC ≤ 39,9
-  - Obesidade grau III: IMC ≥ 40
+| Intervalo de IMC    | Situação           |
+| ------------------- | ------------------ |
+| Menor que 18.5      | Abaixo do peso     |
+| 18.5 - 24.9         | Peso normal        |
+| 25.0 - 29.9         | Sobrepeso          |
+| 30.0 - 34.9         | Obesidade grau I   |
+| 35.0 - 39.9         | Obesidade grau II  |
+| Maior ou igual a 40 | Obesidade grau III |
 
 - **Tabela visual**: exibe todos os intervalos de IMC, destacando automaticamente a linha correspondente ao valor calculado.
 
