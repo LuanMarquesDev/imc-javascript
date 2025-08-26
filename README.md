@@ -8,9 +8,7 @@ Uma aplicação web simples desenvolvida em **HTML, CSS e JavaScript (ES5)** par
 
 - **Cálculo do IMC**: baseado na fórmula oficial:
 
-$$
-IMC = \frac{peso \ (kg)}{altura^2 \ (m)}
-$$
+  IMC = $\frac{peso \ (kg)}{altura^2 \ (m)}$
 
 - **Classificação detalhada do IMC**:
 
