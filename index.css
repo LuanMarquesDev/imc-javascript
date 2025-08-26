@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+form label {
+  font-weight: bold;
+  color: #555;
+}
+
+form input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60%;
+  text-align: right;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3b64ce;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #2f4eb3;
+}
+
+.resultado {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tabela */
+#tabela-imc {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#tabela-imc th,
+#tabela-imc td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+#tabela-imc tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tabela-imc tr:hover {
+  background-color: #e6f2ff;
+}
+
+#tabela-imc tr.destacado {
+  background-color: #d4edda;
+  font-weight: bold;
+  color: #155724;
+  transition: 0.3s;
+}
