@@ -1,37 +1,3 @@
-// Classe Pessoa
-function Pessoa(altura, peso) {
-  if (!altura || !peso) {
-    throw new Error("Altura e peso são obrigatórios");
-  }
-
-  this.altura = altura;
-  this.peso = peso;
-}
-
-// Classe Nutricionista estende Pessoa
-function Nutricionista(altura, peso) {
-  Pessoa.call(this, altura, peso);
-
-  this.calcularIMC = function () {
-    return this.peso / (this.altura * this.altura);
-  };
-
-  this.classificarIMC = function () {
-    var imc = this.calcularIMC();
-
-    if (imc < 18.5) return "Abaixo do peso";
-    if (imc < 25) return "Peso normal";
-    if (imc < 30) return "Sobrepeso";
-    if (imc < 35) return "Obesidade grau I";
-    if (imc < 40) return "Obesidade grau II";
-
-    return "Obesidade grau III";
-    return "Obesidade grau III";
-  };
-}
-Nutricionista.prototype = Object.create(Pessoa.prototype);
-Nutricionista.prototype.constructor = Nutricionista;
-
 // ====================
 // Funções auxiliares
 // ====================
@@ -59,7 +25,7 @@ function destacarClassificacao(classificacao) {
 // ====================
 // Função principal
 // ====================
-function calcularIMC(evt) {
+async function calcularIMC(evt) {
   evt.preventDefault();
 
   var alturaEl = document.getElementById("altura");
@@ -80,12 +46,20 @@ function calcularIMC(evt) {
   }
 
   try {
-    var nutricionista = new Nutricionista(altura, peso);
-    var imc = nutricionista.calcularIMC();
-    var classificacao = nutricionista.classificarIMC();
+    // Faz chamada para API Express
+    const resposta = await fetch("http://localhost:3000/imc/calculate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ height: altura, weight: peso }),
+    });
 
-    atualizarResultado(imc, classificacao);
-    destacarClassificacao(classificacao);
+    if (!resposta.ok) throw new Error("Erro na API");
+
+    const dados = await resposta.json();
+
+    // Atualiza resultado com resposta do backend
+    atualizarResultado(Number(dados.imc), dados.imcDescription);
+    destacarClassificacao(dados.imcDescription);
   } catch (erro) {
     alert("Erro inesperado: " + erro.message);
   }
